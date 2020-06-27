@@ -6,7 +6,7 @@
 # holds the name of the program being run.  You can get this
 # value from the first item on the command line ($0).
 
-PROGNAME=$(telegram-desktop $0)
+PROGNAME=$(telegram-desktop $1)
 
 error_exit()
 {
@@ -28,3 +28,4 @@ error_exit()
 
 echo "Example of error with line number and message"
 error_exit "$LINENO: An error has occurred."
+
