@@ -17,7 +17,7 @@ tput setaf 2
 tput setaf 6
 
 
-           OPTIONS="Update_Upgrade Install_tools Headers(dkms) Wine_Set Service_Enable Check_Failed Check_journalctl  Quit"
+           OPTIONS="Update_Upgrade Install_tools Headers(dkms) Wine_Set Service_Enable Check_Failed Check_journalctl Reboot Quit"
            select opt in $OPTIONS; do
                if [ "$opt" = "Quit" ]; then
                 echo Congratulations all work is done
@@ -34,6 +34,8 @@ tput setaf 6
                 sudo systemctl --failed
             elif [ "$opt" = "Check_journalctl" ]; then
                 journalctl -p 3 -xb 
+            elif [ "$opt" = "Reboot" ]; then
+                sudo reboot 
 
 
             else
