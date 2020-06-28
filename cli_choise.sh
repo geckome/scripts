@@ -1,4 +1,5 @@
  #!/bin/bash
+ set -e
  #Blue 4                                                                                                                                                                                       
 #Magenta 5                                                                                                                                                                                    
 #Cyan 6                                                                                                                                                                                       
@@ -16,20 +17,28 @@ tput setaf 2
 tput setaf 6
 
 
-           OPTIONS="Update  Install_tools Headers Quit"
+           OPTIONS="Update_Upgrade Install_tools Headers(dkms) Wine_Set Service_Enable Check_Failed Check_journalctl  Quit"
            select opt in $OPTIONS; do
                if [ "$opt" = "Quit" ]; then
-                echo done
+                echo Congratulations all work is done
                 exit
-               elif [ "$opt" = "Update" ]; then
-                sudo apt update
+            elif [ "$opt" = "Update_Upgrade" ]; then
+                sudo apt update && sudo apt upgrade
             elif [ "$opt" = "Install_tools" ]; then
                 sudo apt install git-all vlc gtkhash imagemagick qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager cpu-checker android-file-transfer gufw filezilla qbittorrent net-tools timeshift uget fastboot audacious telegram-desktop wine gparted -y
-              elif [ "$opt" = "Headers" ]; then
-                sudo apt install headers $(uname -r)
-               else
+            elif [ "$opt" = "Headers(dkms)" ]; then
+                sudo apt install dkms linux-headers $(uname -r)
+            elif [ "$opt" = "Wine_Set" ]; then
+                sudo winecfg
+            elif [ "$opt" = "Check_Failed" ]; then
+                sudo systemctl --failed
+            elif [ "$opt" = "Check_journalctl" ]; then
+                journalctl -p 3 -xb 
+
+
+            else
                 clear
-                echo bad option
+                echo choose your option
                fi
            done
 tput sgr0
