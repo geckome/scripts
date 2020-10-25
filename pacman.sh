@@ -3,7 +3,7 @@
 ##################### Scripts form just for simplicity and to watch how it works #################
 ##################### thats all. In a fact you can locate all tools in one string #################
 ##################### This script skipping tools existing at system for this moment################
-########################## HAVE FUN. @Glory to Ukraine @Glory to ancestors ##############
+########################## HAVE FUN.  @Glory to ancestors ##############
 
 #Blue 4
 #Magenta 5
